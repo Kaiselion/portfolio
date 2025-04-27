@@ -1,0 +1,27 @@
+---
+import NavBar from '@components/shared/NavBar.astro'
+import Footer from '@components/shared/Footer.astro'
+import TopButton from '@/components/shared/TopButton.astro'
+
+import '@styles/global.css'
+---
+
+<html lang='es' class='scroll-smooth'>
+	<head>
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<title>Kaiselion Portfolio</title>
+	</head>
+	<body
+		class='flex flex-col min-h-screen bg-gray-800 text-gray-200 items-center text-center'
+	>
+		<NavBar />
+		<main class='flex-grow w-full'>
+			<slot />
+		</main>
+		<TopButton />
+		<Footer />
+	</body>
+</html>

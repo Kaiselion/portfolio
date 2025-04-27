@@ -1,0 +1,35 @@
+---
+
+---
+
+<button
+	id='top-btn'
+	class='fixed bottom-25 right-15 bg-gray-700 rounded-full scale-150 hover:scale-175'
+>
+	<svg
+		class='w-6 h-6 text-gray-800 dark:text-white'
+		aria-hidden='true'
+		xmlns='http://www.w3.org/2000/svg'
+		width='24'
+		height='24'
+		fill='none'
+		viewBox='0 0 24 24'
+	>
+		<path
+			stroke='currentColor'
+			stroke-linecap='round'
+			stroke-linejoin='round'
+			stroke-width='2'
+			d='M12 6v13m0-13 4 4m-4-4-4 4'></path>
+	</svg>
+</button>
+
+<script>
+	const topButton = document.querySelector('#top-btn') as HTMLButtonElement
+	topButton.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
+	})
+</script>
