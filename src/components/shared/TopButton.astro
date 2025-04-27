@@ -4,7 +4,7 @@
 
 <button
 	id='top-btn'
-	class='fixed bottom-25 right-15 bg-gray-700 rounded-full scale-150 hover:scale-175'
+	class='fixed bottom-25 right-15 bg-gray-700 rounded-full scale-150 hover:scale-175 cursor-pointer'
 >
 	<svg
 		class='w-6 h-6 text-gray-800 dark:text-white'
@@ -28,8 +28,7 @@
 	const topButton = document.querySelector('#top-btn') as HTMLButtonElement
 	topButton.addEventListener('click', () => {
 		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
+			top: 0
 		})
 	})
 </script>
