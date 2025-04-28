@@ -2,11 +2,68 @@
 
 ---
 
-<nav class='flex flex-col items-center p-4 bg-indigo-950/70 text-white w-full'>
-	<ul class='flex gap-10'>
-		<li><a href='/'>Inicio</a></li>
-		<li><a href='#about'>Sobre Mi</a></li>
-		<li><a href='#projects'>Proyectos</a></li>
-		<li><a href='#experience'>Experiencia</a></li>
-	</ul>
+<nav class='flex justify-center p-4 bg-indigo-950/70 text-white w-full'>
+	<div class='w-[85%] flex justify-between items-center'>
+		<!-- Logo o nombre (opcional) -->
+		<div class='text-xl font-bold'>
+			<a href='/'>Kaiselion</a>
+		</div>
+
+		<!-- Menú hamburguesa (visible en móviles) -->
+		<button
+			id='menu-toggle'
+			class='md:hidden flex flex-col justify-center items-center'
+		>
+			<span class='block w-6 h-0.5 bg-white mb-1'></span>
+			<span class='block w-6 h-0.5 bg-white mb-1'></span>
+			<span class='block w-6 h-0.5 bg-white'></span>
+		</button>
+
+		<!-- Menú de navegación (oculto en móviles) -->
+		<ul id='menu-items' class='hidden md:flex gap-10'>
+			<li><a href='/'>Inicio</a></li>
+			<li><a href='#about'>Sobre Mi</a></li>
+			<li><a href='#experience'>Experiencia</a></li>
+			<li><a href='#projects'>Proyectos</a></li>
+		</ul>
+	</div>
+
+	<!-- Menú móvil desplegable con animación -->
+	<div
+		id='mobile-menu'
+		class='absolute top-16 left-0 right-0 bg-indigo-950 w-full max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out'
+	>
+		<ul class='flex flex-col items-center gap-4 py-4'>
+			<li><a href='/'>Inicio</a></li>
+			<li><a href='#about'>Sobre Mi</a></li>
+			<li><a href='#experience'>Experiencia</a></li>
+			<li><a href='#projects'>Proyectos</a></li>
+		</ul>
+	</div>
 </nav>
+
+<script>
+	const menuToggle = document.getElementById('menu-toggle') as HTMLButtonElement
+	const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement
+
+	menuToggle.addEventListener('click', () => {
+		if (mobileMenu.classList.contains('opacity-0')) {
+			// Abrir menú
+			mobileMenu.classList.remove('opacity-0', 'max-h-0')
+			mobileMenu.classList.add('opacity-100', 'max-h-60', 'p-4')
+		} else {
+			// Cerrar menú
+			mobileMenu.classList.remove('opacity-100', 'max-h-60', 'p-4')
+			mobileMenu.classList.add('opacity-0', 'max-h-0')
+		}
+	})
+
+	// Cerrar menú al hacer clic en un enlace
+	const mobileLinks = mobileMenu.querySelectorAll('a')
+	mobileLinks.forEach((link) => {
+		link.addEventListener('click', () => {
+			mobileMenu.classList.remove('opacity-100', 'max-h-60', 'p-4')
+			mobileMenu.classList.add('opacity-0', 'max-h-0')
+		})
+	})
+</script>
