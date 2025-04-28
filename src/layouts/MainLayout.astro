@@ -18,10 +18,11 @@ import '@styles/global.css'
 		class='flex flex-col min-h-screen bg-gradient-to-br from-indigo-900 to-indigo-950 text-gray-200 items-center'
 	>
 		<NavBar />
-		<main class='flex-grow w-[60%] flex flex-col gap-12'>
+		<main class='flex-grow w-[80%] flex flex-col gap-12'>
 			<slot />
 		</main>
 		<TopButton />
+		<div class='pb-5'></div>
 		<Footer />
 	</body>
 </html>
